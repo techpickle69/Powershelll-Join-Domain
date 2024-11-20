@@ -85,14 +85,8 @@ $sitegateway =  Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -Exp
 # Use the default gateway information to get the site organization code
 switch ($sitegateway){ 
     10.64.24.1  {$sitecode = ""} # 
-    10.64.200.1  {$sitecode = "LSS"} # 
-    10.69.112.1  {$sitecode = "ROS"} # 
-    10.69.120.1  {$sitecode = "ROS"} # 
-    10.68.152.1  {$sitecode = "ROS"} # 
-    10.64.64.1  {$sitecode = "FPF"} # 
-    10.86.64.1  {$sitecode = "FPF"} # 
-    10.86.72.1  {$sitecode = "FPF"} # 
-    10.64.32.1  {$sitecode = "FSF"} # 
+    10.64.200.1  {$sitecode = ""} # 
+    10.69.112.1  {$sitecode = ""} # 
     default     {$sitecode = "NOTFOUND"}
     }
 
@@ -110,10 +104,10 @@ $NewHostName = $sitecode+'-'+$hardware.ToUpper()+'-'+$lastprtofSN
 
 # 2.  Specify the domain to join.
 switch ($sitecode){
-    FSF  {$DomainToJoin = "corp.freedomsquarefl.com"}
-    LSS  {$DomainToJoin  = "corp.lakeseminoleseniorliving.com"}
-    FPF  {$DomainToJoin  = "corp.freedomplazafl.com"}
-    ROS  {$DomainToJoin  = "corp.regencyoaksseniorliving.com"}
+    FSF  {$DomainToJoin = "corp.com"}
+    LSS  {$DomainToJoin  = "corp.com"}
+    FPF  {$DomainToJoin  = "corp.com"}
+    ROS  {$DomainToJoin  = "corp.com"}
     default     {$DomainToJoin = "NOTFOUND"}
                        }
 
